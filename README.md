@@ -16,7 +16,7 @@ This is a centralized repository of my own **Python scripts for high-quality fig
 These figures are published at top venues, including ***Nature Machine Intelligence***, ***ICML***, ***NeurIPS***, ***ECCV***, etc. &#127881; 
 
 Please feel free to cite any of these papers if you find them relevant or helpful. &#127891; 
-<br>在符合学术规范的前提下，欢迎大家狠狠引用。 &#127891; 
+<br>在**符合学术规范的前提**下，欢迎大家狠狠引用。 &#127891; 
 
 <br>
 
