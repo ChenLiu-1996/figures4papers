@@ -50,9 +50,6 @@ Please feel free to cite any of these papers if you find them relevant or helpfu
 ### Trend plots
 <img src="figure_ophthal_review/figures/trend_by_month.png" width="800">
 
-### Heat maps
-<img src="figure_RNAGenScape/figures/results_comparison_optimization.png" width="800">
-
 ### Miscellaneous: figures not made end-to-end in Python
 These figures were made partially in Python. I included them to acknowledge the time and efforts I spent on them.
 
