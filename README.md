@@ -172,6 +172,8 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 [![OpenReview](https://img.shields.io/badge/OpenReview-eeeeee)](https://openreview.net/forum?id=p9Zb9F0V71)
 [![Project Page](https://img.shields.io/badge/Project_Page-B9DEF1)](https://xixiaouab.github.io/VIGIL/)
+[![arXiv](https://img.shields.io/badge/arXiv-VIGIL-firebrick)](https://arxiv.org/abs/2606.26387)
+[![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://arxiv.org/pdf/2606.26387)
 ```bibtex
 @inproceedings{xiao2026vigil,
     title={Staying VIGILant: Mitigating Visual Laziness via Counterfactual Visual Alignment in MLLMs},
