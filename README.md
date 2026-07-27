@@ -127,7 +127,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 ## Related Papers
 <details>
-<summary>ImmunoStruct (Nature Machine Intelligence)</summary>
+<summary>ImmunoStruct (Nature Machine Intelligence 2026)</summary>
 
 [![nature](https://img.shields.io/badge/nature-machine_intelligence-gold)](https://www.nature.com/articles/s42256-025-01163-y)
 [![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://www.nature.com/articles/s42256-025-01163-y.pdf)
@@ -148,7 +148,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 </details>
 <details>
-<summary>LM-Dispersion (ICML)</summary>
+<summary>LM-Dispersion (ICML 2026)</summary>
 
 [![OpenReview](https://img.shields.io/badge/OpenReview-eeeeee)](https://openreview.net/forum?id=pd6A7jB5D6)
 [![ICML 2026](https://img.shields.io/badge/ICML_2026-purple)](https://icml.cc/virtual/2026/poster/61492)
@@ -168,7 +168,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 </details>
 <details>
-<summary>VIGIL (ECCV)</summary>
+<summary>VIGIL (ECCV 2026)</summary>
 
 [![OpenReview](https://img.shields.io/badge/OpenReview-eeeeee)](https://openreview.net/forum?id=p9Zb9F0V71)
 [![Project Page](https://img.shields.io/badge/Project_Page-B9DEF1)](https://xixiaouab.github.io/VIGIL/)
@@ -201,7 +201,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 </details>
 <details>
-<summary>Brainteaser (NeurIPS)</summary>
+<summary>Brainteaser (NeurIPS 2025)</summary>
 
 [![OpenReview](https://img.shields.io/badge/OpenReview-eeeeee)](https://openreview.net/forum?id=3oQDkmW72a)
 [![NeurIPS 2025](https://img.shields.io/badge/NeurIPS_2025-purple)](https://neurips.cc/virtual/2025/loc/san-diego/poster/120001)
@@ -210,13 +210,11 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 [![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://arxiv.org/pdf/2505.10844)
 [![GitHub Stars](https://img.shields.io/github/stars/stephenxia1/brainteasers.svg?style=social\&label=Stars)](https://github.com/stephenxia1/brainteasers)
 ```bibtex
-@article{han2026creativity,
+@inproceedings{han2025creativity,
   title={Creativity or brute force? using brainteasers as a window into the problem-solving abilities of large language models},
   author={Han, Sophia and Dai, Howard and Xia, Stephen and Zhang, Grant and Liu, Chen and Chen, Lichang and Nguyen, Hoang H and Mei, Hongyuan and Mao, Jiayuan and McCoy, R Thomas},
   journal={Advances in Neural Information Processing Systems},
-  volume={38},
-  pages={146950--147004},
-  year={2026}
+  year={2025}
 }
 ```
 
