@@ -176,11 +176,11 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 [![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://arxiv.org/pdf/2606.26387)
 ```bibtex
 @inproceedings{xiao2026vigil,
-    title={Staying VIGILant: Mitigating Visual Laziness via Counterfactual Visual Alignment in MLLMs},
-    author={Xiao, Xi and Liu, Chen and Liao, Chih-Ting and Zhang, Yunbei and Lan, Qizhen and Wei, Yuxiang and Zhao, Lin and Wang, Janet and Gu, Jianyang and Ye, Muchao and Wang, Tianyang and Xu, Hao},
-    booktitle={European Conference on Computer Vision},
-    year={2026},
-    organization={Springer}
+  title={Staying VIGILant: Mitigating Visual Laziness via Counterfactual Visual Alignment in MLLMs},
+  author={Xiao, Xi and Liu, Chen and Liao, Chih-Ting and Zhang, Yunbei and Lan, Qizhen and Wei, Yuxiang and Zhao, Lin and Wang, Janet and Gu, Jianyang and Ye, Muchao and Wang, Tianyang and Xu, Hao},
+  booktitle={European Conference on Computer Vision},
+  year={2026},
+  organization={Springer}
 }
 ```
 
@@ -213,7 +213,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 @inproceedings{han2025creativity,
   title={Creativity or brute force? using brainteasers as a window into the problem-solving abilities of large language models},
   author={Han, Sophia and Dai, Howard and Xia, Stephen and Zhang, Grant and Liu, Chen and Chen, Lichang and Nguyen, Hoang H and Mei, Hongyuan and Mao, Jiayuan and McCoy, R Thomas},
-  journal={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems},
   year={2025}
 }
 ```
