@@ -213,7 +213,9 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 @inproceedings{han2025creativity,
   title={Creativity or brute force? using brainteasers as a window into the problem-solving abilities of large language models},
   author={Han, Sophia and Dai, Howard and Xia, Stephen and Zhang, Grant and Liu, Chen and Chen, Lichang and Nguyen, Hoang H and Mei, Hongyuan and Mao, Jiayuan and McCoy, R Thomas},
-  booktitle={Advances in Neural Information Processing Systems},
+  journal={Advances in Neural Information Processing Systems},
+  volume={38},
+  pages={146950--147004},
   year={2025}
 }
 ```
