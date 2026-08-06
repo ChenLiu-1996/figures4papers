@@ -23,8 +23,6 @@ Please feel free to cite any of these papers if you find them relevant or helpfu
 ### Bar plots for quantitative comparison
 <img src="figure_ImmunoStruct/figures/bars_comparison_IEDB.png" width="800">
 
-<img src="figure_CellSpliceNet/figures/comparison_worm.png" width="800">
-
 ### Bar plots for composition breakdown
 <img src="figure_Brainteaser/figures/brute_force.png" width="800">
 
