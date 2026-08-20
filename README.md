@@ -2,7 +2,6 @@
 
 <h1><code>Figures for Papers</code></h1>
 
-[![oosmetrics](https://api.oosmetrics.com/api/v1/badge/achievement/9cb2283a-461d-44fd-bd2d-83d82f53fd17.svg)](https://oosmetrics.com/repo/ChenLiu-1996/figures4papers)
 <br>[![LinkedIn](https://img.shields.io/badge/LinkedIn-Chen-blue)](https://www.linkedin.com/in/chenliu1996/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/Chen.svg?style=social)](https://x.com/ChenLiu_1996)
 [![Google Scholar](https://img.shields.io/badge/Google_Scholar-Chen-4a86cf?logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=3rDjnykAAAAJ&sortby=pubdate)
