@@ -18,6 +18,7 @@ Each folder contains Python scripts and (in `figures/`) outputs that follow the 
 | **figure_RNAGenScape** | [figures4papers/figure_RNAGenScape](https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_RNAGenScape) | Heat maps |
 | **figure_Dispersion** | [figures4papers/figure_Dispersion](https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_Dispersion) | 3D-style spheres, performance plots |
 | **figure_Cflows** | [figures4papers/figure_Cflows](https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_Cflows) | Comparison, ablation, trajectory plots |
+| **figure_ConfusionMatrix** | [figures4papers/figure_ConfusionMatrix](https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_ConfusionMatrix) | Confusion-matrix heatmaps (counts, row-normalized, baseline vs proposed) |
 
 For full scripts, outputs, and data, clone or browse the repo. The figure_* folders are the canonical implementations of this skill's style.
 
