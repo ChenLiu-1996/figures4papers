@@ -9,7 +9,7 @@
 
 </div>
 
-I am [Chen Liu](https://chenliu-1996.github.io/), a Computer Science PhD Candidate at Yale University.
+I am [Chen Liu](https://chenliu-1996.github.io/) (刘晨), a Computer Science PhD Candidate at Yale University.
 
 This is a centralized repository of my own **Python scripts for high-quality figures**.
 
