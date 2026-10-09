@@ -171,6 +171,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 [![Project Page](https://img.shields.io/badge/Project_Page-B9DEF1)](https://xixiaouab.github.io/VIGIL/)
 [![arXiv](https://img.shields.io/badge/arXiv-VIGIL-firebrick)](https://arxiv.org/abs/2606.26387)
 [![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://arxiv.org/pdf/2606.26387)
+[![GitHub Stars](https://img.shields.io/github/stars/xixiaouab/VIGIL.svg?style=social\&label=Stars)](https://github.com/xixiaouab/VIGIL)
 ```bibtex
 @inproceedings{xiao2026vigil,
   title={Staying VIGILant: Mitigating Visual Laziness via Counterfactual Visual Alignment in MLLMs},
@@ -187,6 +188,7 @@ Restart the agent (or refresh its skill list) after linking. You can then invoke
 
 [![arXiv](https://img.shields.io/badge/arXiv-RNAGenScape-firebrick)](https://arxiv.org/abs/2510.24736)
 [![PDF](https://img.shields.io/badge/PDF-DADBDD)](https://arxiv.org/pdf/2510.24736)
+[![GitHub Stars](https://img.shields.io/github/stars/ChenLiu-1996/RNAGenScape.svg?style=social\&label=Stars)](https://github.com/ChenLiu-1996/RNAGenScape)
 ```bibtex
 @article{liao2026rnagenscape,
   title={RNAGenScape: Property-Guided, Optimized Generation of mRNA Sequences with Manifold Langevin Dynamics},
