@@ -43,7 +43,7 @@ METHOD_LABELS = {
     'MACL-prev': 'MACL',
     'MACL-curr': 'MACL (current)',
     'MACL-both': 'MACL (current + previous)',
-    'MACL-prev (interleaved)': 'MACL (5-epoch interleaved SFT+RL)',
+    'MACL-prev (interleaved)': 'MACL (5-epoch interleaved SFT/RL)',
     'MACL-prev (SFT → RL, 1 epoch)': 'MACL-sequential (5-epoch SFT + 1-epoch RL)',
     'MACL-prev (SFT → RL, 2 epochs)': 'MACL-sequential (5-epoch SFT + 2-epoch RL)',
 }
