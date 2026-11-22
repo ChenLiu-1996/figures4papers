@@ -61,7 +61,7 @@ if __name__ == '__main__':
     ax.set_ylabel(data_comparison_IEDB['metrics'][2], fontsize=32)
 
     ax = fig.add_subplot(1, 4, 4)
-    ax.legend(handles, labels)
+    ax.legend(handles, labels, frameon=False)
     ax.set_axis_off()
 
     fig.tight_layout(pad=2)
@@ -160,7 +160,7 @@ if __name__ == '__main__':
     ax.set_ylabel(data_comparison_Cancer['metrics'][2], fontsize=32)
 
     ax = fig.add_subplot(1, 4, 4)
-    ax.legend(handles, labels)
+    ax.legend(handles, labels, frameon=False)
     ax.set_axis_off()
 
     fig.tight_layout(pad=2)
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     ax.set_ylabel(data_ablation_Cancer['metrics'][2], fontsize=32)
 
     ax = fig.add_subplot(1, 4, 4)
-    ax.legend(handles, labels)
+    ax.legend(handles, labels, frameon=False)
     ax.set_axis_off()
 
     fig.tight_layout(pad=2)
