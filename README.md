@@ -18,6 +18,33 @@ Please feel free to cite any of these papers if you find them relevant or helpfu
 
 <br>
 
+## smilab-style: original vs. smilab-style
+
+This fork adds the **smilab-style** skill ([`smilab-style/`](smilab-style/SKILL.md)), distilled from 33 reference figures ([gallery](smilab-style/references/gallery.md), [rules (JA)](smilab-style/references/style-rules.ja.md)).
+As a test, every `figure_MACL` figure was redrawn with the same data: [`figure_MACL/plot_smilab.py`](figure_MACL/plot_smilab.py) → [`figure_MACL/figures_smilab/`](figure_MACL/figures_smilab/).
+
+What changed:
+- **Color = meaning**: one method→color map for all 12 figures; the proposed method (MACL) is red-pink, last, and **bold**. Static references (Zero-shot / Specialist / Multitask mixed) became gray dash patterns, so color is reserved for methods.
+- **Print size**: drawn at 7.0 in (double column) with Times + STIX math at 7–8 pt, instead of a 45 in canvas shrunk down.
+- **Bars**: values written vertically inside the bars; direction arrows moved to the y labels (`Score ↑`, `Rank ↓`).
+- **Lines**: baselines thin, MACL thick on top; the training stage of each panel is a shaded column; 12-stage axes use numbers instead of overlapping names.
+- **Legend**: one framed row on top with square patches.
+
+| Original | smilab-style |
+|:---:|:---:|
+| <img src="figure_MACL/figures/exp_task_comparison.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_task_comparison.png" width="400"> |
+| <img src="figure_MACL/figures/exp_task_learning_curves.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_task_learning_curves.png" width="400"> |
+| <img src="figure_MACL/figures/exp_task_ablation.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_task_ablation.png" width="400"> |
+| <img src="figure_MACL/figures/exp_sub_learning_curves.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_sub_learning_curves.png" width="400"> |
+| <img src="figure_MACL/figures/exp_qa_comparison.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_qa_comparison.png" width="400"> |
+| <img src="figure_MACL/figures/exp_qa_ablation_SFTRL.png" width="400"> | <img src="figure_MACL/figures_smilab/exp_qa_ablation_SFTRL.png" width="400"> |
+| <img src="figure_MACL/figures/overview_panel_b.png" width="400"> | <img src="figure_MACL/figures_smilab/overview_panel_b.png" width="400"> |
+| <img src="figure_MACL/figures/overview_panel_d.png" width="400"> | <img src="figure_MACL/figures_smilab/overview_panel_d.png" width="400"> |
+
+Regenerate: `python figure_MACL/plot_smilab.py` (matplotlib ≥ 3.7). Smaller plot-only demos: [`smilab-style/examples/`](smilab-style/examples/demo.py).
+
+<br>
+
 ### Bar plots for quantitative comparison
 <img src="figure_ImmunoStruct/figures/bars_comparison_IEDB.png" width="800">
 
