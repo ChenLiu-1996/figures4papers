@@ -1,36 +1,42 @@
 # `smilab_style.py` API
 
+`smilab_style.py` implements the **base contract** from [scientific-figure-making/references/api.md](../../scientific-figure-making/references/api.md) with the SMILab overrides (O1–O3 in [design-rules.md](design-rules.md)), plus helpers for the additions.
 Import: `sys.path.insert(0, "smilab-style"); import smilab_style as sm`. Examples: [examples/demo.py](../examples/demo.py).
 
-## Constants
-- `TONES[name] -> (fill, edge)` — blue, yellow, purple, orange, green, red, gray.
-- `METHOD_CYCLE` — pastel baseline colors for bars; `OURS = "#D9837F"`.
-- `LINE_CYCLE` / `OURS_LINE = "#3F84AA"` — saturated variants for line plots.
-- `GRID`, `ARROW`, `GOOD`, `BAD`, `GRAY_TEXT`.
+## Base contract (same names and meaning as the base)
 
-## Style
-- `apply_style(mode="paper"|"teaser", font_size=9)` — rcParams: fonts (Times+STIX / Helvetica), no top/right spines, light y-grid, framed square legend, TrueType embedding, 300 dpi tight save. Size figures at real print width (single column ≈ 3.3 in, double ≈ 7.0 in) so `font_size` is the printed size.
-- `method_colors(methods, ours, cycle=METHOD_CYCLE, ours_color=OURS) -> dict` — build once per paper.
-- `darken(color, factor=0.75)` — same-hue darker edge.
+| Name | SMILab behaviour |
+|---|---|
+| `PALETTE`, `DEFAULT_COLORS` | Identical to the base |
+| `FigureStyle(font_size=8, axes_linewidth=0.8, use_tex=False, mode="paper", font_family=Times…)` | O1/O2 defaults; `mode="teaser"` switches to the base sans stack |
+| `apply_publication_style(style=None)` | Base rcParams (spines off, svg text, dpi 300) + O1 fonts + O2 sizes + O3 framed legend / light y-grid |
+| `create_subplots(nrows, ncols, figsize=None)` | Returns `(fig, axes_1d)`; default `figsize` is print width (`COLUMN=3.3`, `DOUBLE=7.0` in) |
+| `finalize_figure(fig, out_path, formats=None, dpi=300, close=False, pad=0.03)` | Default formats pdf + png |
 
-## Text
-- `label(name, unit=None, better=None)` — `label("HD95", "mm", "down")` → `HD95 [mm] ↓`.
-- `stars(p)` — `'***' / '**' / '*' / ''`.
-- `panel_label(ax, "(a)", x=-0.12, y=1.04)` — bold, top-left.
-- `square_legend(ax_or_fig, names, colors, ours=..., **legend_kw)` — square patches, ours bold.
-- `bold_ours_ticklabels(ax, ours, axis="x")`.
+Shorthands: `apply_style(mode, font_size)`, `save(fig, path)`.
+
+## Colors
+- `OURS = PALETTE["blue_main"]` (inherited rule); `OURS_VARIANTS` = lighter blues for ablations.
+- `METHOD_CYCLE` — pastel baselines from the base family (as used in `figure_MACL`).
+- `LINE_CYCLE`, `OURS_LINE` — saturated versions for thin lines/markers.
+- `method_colors(methods, ours=..., variants=[...])` — build once per paper (A1).
+- `TONES[name] -> (fill, edge)` — schematic tonal pairs (A5). `darken(c)`, `text_color_on(c)`.
+
+## Text (additions)
+- `label(name, unit=None, better="up"|"down")` → `HD95 [mm] ↓` (A2).
+- `stars(p)`; `panel_label(ax, "(a)")`; `square_legend(ax_or_fig, names, colors, ours=...)`; `bold_ours_ticklabels(ax, ours)`.
 
 ## Plots
-- `bar_compare(ax, names, means, colors, errs=None, pvalues=None, fmt="{:.1f}", ylim=None, ylabel=None, show_xticks=False)` — in-bar vertical values, stars above. Set `ylim` here (values are placed relative to it).
-- `hbar_ablation(ax, rows, values, errs=None, full_idx=0, best="min", pvalues=None, xlim=None, xlabel=None, show_rows=True, gaps=())` — returns row y-positions; `gaps` inserts blank rows for group headers (write headers with `ax.text` at `y[i]-1`). Do **not** use `sharey` (the helper inverts the axis).
-- `line_compare(ax, x, series: dict, colors, ours=None, markers=None)` — color+marker per method; string `x` becomes categorical.
-- `scatter_direct(ax, points: dict[name -> (x, y)], colors, markers=None, sizes=None, labels=None, offsets=None, ours=None)` — direct colored labels; tune `offsets` (points) to avoid overlaps.
-- `badge_ticklabels(ax, labels, highlight=[i])` + `tinted_axes(ax)` — DISCODE-style.
-- `tone_box(ax, xy, w, h, tone, text=None, rotation=0, dashed=False)` — schematic block in matplotlib.
-- `save(fig, path, formats=("pdf", "png"))`.
+- `bar_compare(ax, names, means, colors, errs=None, pvalues=None, fmt, ylim, ylabel, hatches=None)` — O3 bars. Set `ylim` here (in-bar values are placed relative to it).
+- `hbar_ablation(ax, rows, values, errs=None, full_idx=0, colors=None, best="min", pvalues=None, xlim, xlabel, show_rows=True, gaps=())` — A4. No `sharey` (the helper inverts the axis).
+- `line_compare(ax, x, series, colors, ours=None, markers=None)` — A3 lines.
+- `scatter_direct(ax, points, colors, markers=None, sizes=None, labels=None, offsets=None, ours=None)` — A3 direct labels.
+- `badge_ticklabels(ax, labels, highlight=[i])`, `tinted_axes(ax)` — shared schematic/plot vocabulary.
+- `tone_box(ax, xy, w, h, tone, text=None, rotation=0, dashed=False)` — A5 block.
 
 ## Checklist before export
-- [ ] method colors from the paper's single map; ours last and bold
-- [ ] axis labels have units and ↓/↑
-- [ ] printed text ≥ 6 pt; figure width = column width
+- [ ] base checklist (palette family, spines, y-limits, dpi)
+- [ ] one method→color map for the paper; proposed = blue, last, bold
+- [ ] axis labels with units and ↓/↑
+- [ ] figure width = column width; printed text ≥ 6 pt
 - [ ] notation identical to the paper; spell-checked

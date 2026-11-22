@@ -1,74 +1,68 @@
-# Design rules
+# Design rules: base + SMILab diff
 
-English version of [style-rules.ja.md](style-rules.ja.md). `#NN` = `images/NN_*.png` (see [gallery.md](gallery.md)).
+Base = [scientific-figure-making](../../scientific-figure-making/SKILL.md) ([design-theory](../../scientific-figure-making/references/design-theory.md), [common-patterns](../../scientific-figure-making/references/common-patterns.md)).
+This file lists only what SMILab **overrides** or **adds**. `#NN` = [gallery](gallery.md) image.
 
-## Why the references look good
+## 1. Inherited (no change)
 
-1. **Few, meaningful colors** — 3–5 hues, each bound to one concept across the paper.
-2. **Tonal pairs** — light pastel fill + darker edge of the same hue; many colors without noise.
-3. **Clear foreground/background** — color, bold and thick borders only for the proposed method / new modules; baselines and standard parts (Projection, Tokenizer, LayerNorm) are gray.
-4. **Notation parity** — figure math matches the paper's equations.
-5. **Concrete data** — real spectrograms, frames, brain renderings show what goes in and out.
-6. **Grid alignment** — same-size blocks, equal spacing, orthogonal arrows, aligned baselines.
-7. **Shared visual vocabulary** between schematics and plots (#28–30 digit badges, #12–17 method colors).
+| Base rule | Note for SMILab |
+|---|---|
+| Blue `#0F4D92` = proposed / key method; greens = improvements; reds = baselines/contrasts; neutrals = background | Kept. Variants of the proposed method use lighter blues `#B7CAE2`, `#6F94BE` |
+| Palette family only (no unrelated colors) | Kept. Pastel baselines come from the same family (`METHOD_CYCLE`) |
+| Top/right spines off | Kept |
+| Tightened y-limits (`min − margin` … `max + margin`) | Kept; the lower limit must stay visible on the axis |
+| Hide x-ticks when the legend names the methods | Kept |
+| Alpha/tint-based ablations, hatching for grayscale print | Kept |
+| `fill_between` for uncertainty; 2–4 main curves per axis | Kept |
+| dpi 300 (600 dense bars), `svg.fonttype='none'` | Kept; PDF also embeds TrueType (`pdf.fonttype=42`) |
+| Dedicated legend panel for big legends | Kept as an option; default is one shared legend row (see A3) |
+| Multi-panel consistency | Kept and extended to the whole paper (A1) |
 
-## Color
+## 2. Overrides
 
-### Tonal pairs (`smilab_style.TONES`)
+### O1 Fonts
+- Base: Helvetica/Arial.
+- SMILab: **Times New Roman + STIX math** for figures placed in a LaTeX paper, so figure text matches the body (#01–05, #12–17). Sans (base stack) only for teasers/slides (`mode="teaser"`). One family per figure.
+- Math uses the paper's notation: bold-italic vectors ($\boldsymbol{X}$), calligraphic sets, upright subscripts ($\boldsymbol{x}_\mathrm{txt}$).
 
-| Tone | Fill | Edge | Typical use |
-|---|---|---|---|
-| blue | `#E8EEFA` | `#7A96D6` | inputs / conditions (#01, #26) |
-| yellow | `#FFF6DA` | `#E2BE55` | core layer (#02, #21) |
-| purple | `#EDE3F3` | `#A77DB8` | proposed block (#04, #06) |
-| orange | `#F9E3CC` | `#E8A36A` | sub-module / zoom (#04b, #06, #07) |
-| green | `#E3F1E1` | `#7FB77A` | fusion / mixer (#21, #26) |
-| red | `#FBE4E1` | `#E08A82` | trainable head / decoder (#01, #23, #29) |
-| gray | `#F2F2F2` | `#9A9A9A` | generic components |
+### O2 Size
+- Base: very large canvases (45×12 in, 16–24 pt, 2–3 pt axes) shrunk in LaTeX.
+- SMILab: **draw at print size** — single column ≈ 3.3 in, double ≈ 7.0 in; text 7–9 pt (≥ 6 pt), axes 0.8 pt. Printed sizes are then known and equal across figures. The base's wide left-to-right composition is kept, just at real width.
 
-Panel backgrounds use the same hues even lighter (≈ alpha 0.15–0.3). Gradients only mean *mixture of two states* (#06, #18).
+### O3 Bars and legends
+- Base: values above bars in large type, black thick edges, frameless legend.
+- SMILab (CANDLE-style, #14–16):
+  - value written **vertically inside the bar** near its bottom (white on dark fills), leaving the space above for error bars and stars;
+  - **thin edges of the same hue** (85 % brightness) instead of black;
+  - **framed legend** (thin gray edge) with **square patches**, proposed method **bold**;
+  - **light y-grid** `#E6E6E6`;
+  - significance `*` p<.05, `**` p<.01, `***` p<.001 above the error bar.
 
-### Semantics
-- Fix **method → color** once per paper (`method_colors`) and reuse it (#14–17 share one map across 4 figures).
-- Proposed = warm red-pink `#D9837F` (plots) / saturated blue `#3F84AA` is allowed for line plots (#10). Never reuse the "ours" color for a baseline.
-- ✗ red `#D9443A`, ✓ green `#4CAF50`. ❄ = frozen, 🔥 = trainable, placed at the block's top-left.
-- Heatmaps: diverging `coolwarm` for signed / relative values (#24); `YlOrRd` for intensity (#12, #14).
+## 3. Additions (not in the base)
 
-### Plot colors
-- Bars: pastel (`METHOD_CYCLE`) with an edge at 85 % brightness.
-- Lines: more chroma (`LINE_CYCLE`), 2–3 pt, plus markers.
-- Saturated bars (#30) only on a light gray `#F5F5F5` plotting area.
+### A1 Per-paper consistency
+One method→color map for the whole paper (`method_colors`), reused by every figure (#14–17). Same for module→tone in schematics, and for icons.
 
-## Typography
-- Paper figures: **Times New Roman + STIX math** (`apply_style("paper")`). Teasers / slides: **Helvetica** (`"teaser"`). One family per figure.
-- Math: bold-italic vectors/matrices ($\boldsymbol{X}$), calligraphic sets ($\mathcal{G}$), upright subscripts ($\boldsymbol{x}_\mathrm{cand}$).
-- At most three levels: bold panel title (optionally in the panel's edge color, #04) → regular labels → small annotations (`×24 trials`, `(See Sec. 4)`).
-- Panel labels: bold `(a)` at top-left (default). Caption-style `(a) Module Overview` under the panel is allowed for schematics — pick one per paper.
-- Text inputs / prompts: italic, in double quotes, inside a dashed box.
-- Labels in tall thin blocks are rotated 90°.
-- Printed size 8–10 pt; never below 6 pt.
+### A2 Axis labels
+`name [unit] ↓/↑` (`label()`), e.g. `HD95 [mm] ↓`. Direction lives on the axis label, not in the title.
 
-## Plots
-- Light grid `#E6E6E6`, no top/right spines, framed legend with thin gray edge and square patches.
-- Axis label = `name [unit] ↓/↑` (`sm.label`).
-- Proposed method last; bold in legend and tick labels.
-- One shared legend for multi-panel figures (top row #10, or right column #14).
-- Significance: `*` p<.05, `**` p<.01, `***` p<.001 above bars (or stacked vertically at the right of h-bars, #17).
-- Bars: value written vertically inside the bar bottom; black thin error bars with small caps. A truncated y-axis is allowed but the lower limit must be visible on the axis.
-- Ablation h-bars: full model colored, others gray `#DCDDE0`, bold group headers, numbered rows `(b-i) w/o fθ`, best value bold per column, solid vertical divider between task groups.
-- Lines: vary **color and marker** (◆ ▲ ■ ●); proposed = circle on top.
-- Scatter: label points directly in their own color; marker = method, edge style = dataset; alpha ≈ 0.75 with darker edge. Bubble size may encode cost (#33).
-- Highlight cells / diagonals with a thick colored frame (#24, #26).
+### A3 Legends and labels
+- Proposed method placed last and bold.
+- Multi-panel: one shared legend row on top (#10) or one column at the right (#14).
+- Scatter: label points directly in their own color instead of a legend (#05); marker = method, edge style = dataset.
+- Lines: vary color **and** marker; proposed drawn on top, slightly thicker.
 
-## Consistency (per paper)
-1. One method→color table for all figures.
-2. One module→tone table shared by schematics and plots.
-3. Same font, panel-label position, arrow color, corner radius everywhere.
-4. Icons (❄/🔥, ✓/✗) keep one meaning.
+### A4 Ablation h-bars (#17)
+Full model in blue, variants in light blue (inherited tint rule); bold group headers; numbered rows `(b-i) w/o fθ`; best value bold per column; stars at the right; solid divider between task groups.
 
-## Don'ts
-- Saturated large fills, 3D effects, strong drop shadows.
-- More than ~5 hues without meaning.
-- Notation that differs from the paper.
-- Typos (seen in references: "Hierachical" #07, "Attentnion" #26, "Sculp" #12, "descriptivenss" #31).
-- Mixing black and gray arrows without a reason.
+### A5 Schematic colors
+Tonal pairs (light fill + darker same-hue edge) from the base family — see `TONES` and [schematics.md](schematics.md). Color = concept; the proposed output/emphasis uses the blue tone (consistent with the base). Gradients only for "mixture of two states".
+
+### A6 Icons and marks
+✗ red / ✓ green; ❄ frozen / 🔥 trainable at a block's top-left; 👤 human reference.
+
+### A7 Teaser (Figure 1)
+Prior ✗ vs ours ✓, a concrete example, score boxes with ours bold + thick border and ≈ human (#08, #22). Details in [schematics.md](schematics.md).
+
+### A8 Don'ts
+Saturated large fills, 3D, heavy shadows, >5 meaningless hues, notation that differs from the paper, typos (references contain "Hierachical" #07, "Attentnion" #26, "Sculp" #12 — spell-check).

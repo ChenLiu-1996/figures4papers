@@ -20,15 +20,20 @@ Please feel free to cite any of these papers if you find them relevant or helpfu
 
 ## smilab-style: original vs. smilab-style
 
-This fork adds the **smilab-style** skill ([`smilab-style/`](smilab-style/SKILL.md)), distilled from 33 reference figures ([gallery](smilab-style/references/gallery.md), [rules (JA)](smilab-style/references/style-rules.ja.md)).
+This fork adds the **smilab-style** skill ([`smilab-style/`](smilab-style/SKILL.md)), a layer **on top of** `scientific-figure-making`: the base rules stay, three are overridden, and rules distilled from 33 reference figures are added ([diff rules](smilab-style/references/design-rules.md), [JA](smilab-style/references/style-rules.ja.md), [gallery](smilab-style/references/gallery.md)).
 As a test, every `figure_MACL` figure was redrawn with the same data: [`figure_MACL/plot_smilab.py`](figure_MACL/plot_smilab.py) → [`figure_MACL/figures_smilab/`](figure_MACL/figures_smilab/).
 
-What changed:
-- **Color = meaning**: one method→color map for all 12 figures; the proposed method (MACL) is red-pink, last, and **bold**. Static references (Zero-shot / Specialist / Multitask mixed) became gray dash patterns, so color is reserved for methods.
-- **Print size**: drawn at 7.0 in (double column) with Times + STIX math at 7–8 pt, instead of a 45 in canvas shrunk down.
-- **Bars**: values written vertically inside the bars; direction arrows moved to the y labels (`Score ↑`, `Rank ↓`).
-- **Lines**: baselines thin, MACL thick on top; the training stage of each panel is a shaded column; 12-stage axes use numbers instead of overlapping names.
-- **Legend**: one framed row on top with square patches.
+Inherited from the base: the original colors (blue `#0F4D92` = MACL, lighter blues = MACL variants, pastels = baselines), spines, hidden x-ticks, export settings.
+
+Overridden (O1–O3):
+- **Fonts**: Times + STIX math, matching the LaTeX body (base: Helvetica).
+- **Print size**: drawn at 7.0 in with 7–8 pt text, instead of a 45 in canvas shrunk down.
+- **Bars and legend**: values written vertically inside the bars (above them when a bar is too short), thin same-hue edges, one framed legend row with square patches.
+
+Added:
+- Direction arrows on the y labels (`Score ↑`, `Rank ↓`); MACL last and **bold**.
+- Static references (Zero-shot / Specialist / Multitask mixed) as neutral gray dash patterns, so color stays reserved for methods.
+- Lines: baselines thin, MACL thick on top; the training stage of each panel is a shaded column; 12-stage axes use numbers instead of overlapping names.
 
 | Original | smilab-style |
 |:---:|:---:|

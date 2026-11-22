@@ -101,8 +101,7 @@ def fig_scatter():
     sm.apply_style("paper", font_size=9)
     names = ["LLaVA-OneVision (7.0B)", "VideoLLaMA3 (2.0B)", "InternVL2.5 (2.2B)",
              "Video-LLaVA (7.0B)", "Ours (3.6B)"]
-    cols = sm.method_colors(names, ours="Ours (3.6B)",
-                            cycle=["#6F86DC", "#E2B24F", "#E0705A", "#9467BD"], ours_color="#5B4FA0")
+    cols = sm.method_colors(names, ours="Ours (3.6B)", cycle=sm.LINE_CYCLE[1:])
     pts = dict(zip(names, [(18, 17.6), (30, 17.4), (31, 19.1), (29, 24.2), (85, 28.6)]))
     mk = dict(zip(names, ["P", "o", "X", "^", "D"]))
     fig, ax = plt.subplots(figsize=(2.9, 2.6))
@@ -126,11 +125,11 @@ def fig_badges():
         p = np.exp(-0.5 * ((np.arange(10) - target) / 1.6) ** 2) + rng.uniform(0, 0.1, 10)
         p /= p.sum()
         sm.tinted_axes(ax)
-        ax.bar(range(10), p, color="#2B2FD9", width=0.8, zorder=2,
+        ax.bar(range(10), p, color=sm.OURS, width=0.8, zorder=2,
                yerr=p * 0.2, error_kw=dict(ecolor="black", elinewidth=1.0, capsize=2))
         sm.badge_ticklabels(ax, [str(i) for i in range(10)], highlight=[target])
         ax.text(0.97, 0.92, f"Raw score : {target}", transform=ax.transAxes, ha="right",
-                va="top", color="#1F2BD0", fontweight="bold")
+                va="top", color=sm.OURS, fontweight="bold")
         ax.set_ylim(0, (p * 1.2).max() * 1.25)
     axes[0].set_ylabel("Probability", fontweight="bold")
     fig.tight_layout()

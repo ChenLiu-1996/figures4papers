@@ -1,6 +1,20 @@
 # Schematic, architecture and teaser figures
 
-For figures drawn in draw.io / PowerPoint / Keynote / Figma. Colors: [design-rules.md](design-rules.md#tonal-pairs-smilab_styletones).
+Addition A5–A7 of [design-rules.md](design-rules.md) (the base skill has no rules for schematics). For figures drawn in matplotlib, draw.io, PowerPoint, Keynote or Figma.
+
+## Tonal pairs (`smilab_style.TONES`, built from the base palette family)
+
+| Tone | Fill | Edge | Use |
+|---|---|---|---|
+| blue | `#E3ECF7` | `#3775BA` | proposed output / emphasis (base: blue = ours) |
+| green | `#E8F5E8` | `#6DBA6D` | a concept, e.g. alignment features |
+| purple | `#EFE4F0` | `#9A4D8E` | a concept, e.g. MLLM evidence |
+| teal | `#E2F1F2` | `#42949E` | a concept |
+| yellow | `#FFF6DA` | `#D9AE3A` | a core trainable block |
+| red | `#FBE6E4` | `#D27C76` | contrast / error / prior work |
+| gray | `#F2F2F2` | `#9A9A9A` | generic components (Projection, Tokenizer, frozen encoders) |
+
+Panel backgrounds: same fill at ~55 % opacity with the edge color as border; panel title bold in a darker edge color.
 
 ## Shape vocabulary
 

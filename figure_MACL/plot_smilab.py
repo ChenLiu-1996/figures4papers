@@ -7,7 +7,7 @@ Run:  python figure_MACL/plot_smilab.py
 Out:  figure_MACL/figures_smilab/*.{pdf,png}
 
 Style decisions (see smilab-style/references/design-rules.md):
-  * one method -> color map for all 11 figures; MACL = red-pink, placed last, bold
+  * colors inherited from the original scripts (base rule: blue = MACL); MACL last, bold
   * static references (Zero-shot / Specialist / Multitask mixed) are gray lines,
     so color is reserved for methods
   * bar values written vertically inside bars; direction arrows on y labels
@@ -40,20 +40,10 @@ LABELS = {"MACL-prev": "MACL", "MACL-curr": "MACL (current)", "MACL-both": "MACL
           "MACL-prev (SFT → RL, 1 epoch)": "SFT → RL (1 epoch)",
           "MACL-prev (SFT → RL, 2 epochs)": "SFT → RL (2 epochs)"}
 OURS_KEYS = {"MACL-prev", "MACL-prev (interleaved)"}
-COLORS = {
-    "Sequential SFT": "#C9C9C9",
-    "Replay": sm.METHOD_CYCLE[1],   # green
-    "KD-LoRA": sm.METHOD_CYCLE[6],  # orange
-    "SPG": sm.METHOD_CYCLE[5],      # purple
-    "SAPT": sm.METHOD_CYCLE[4],     # teal
-    "MACL-prev": sm.OURS,
-    # ablation variants: lighter tints of the ours hue (same family, less emphasis)
-    "MACL-curr": "#F3CFCC",
-    "MACL-both": "#E9AAA6",
-    "MACL-prev (interleaved)": sm.OURS,
-    "MACL-prev (SFT → RL, 1 epoch)": "#F3CFCC",
-    "MACL-prev (SFT → RL, 2 epochs)": "#E9AAA6",
-}
+# Inherited from the base: the original scripts' METHOD_STYLES / SCHEDULE_STYLES colors
+# (blue #0F4D92 = MACL, lighter blues = MACL variants, pastels = baselines).
+# Filled in main() from the loaded modules so the two versions can never drift apart.
+COLORS: dict[str, str] = {}
 MARKERS = {"Sequential SFT": "o", "Replay": "s", "KD-LoRA": "^", "SPG": "v", "SAPT": "D", "MACL-prev": "o"}
 REFS = {  # gray, distinguished by dash pattern
     "Zero-shot": dict(color="#9A9A9A", linestyle=(0, (1.5, 1.5)), linewidth=1.1),
@@ -249,6 +239,9 @@ def overview(mods, methods, filename):
 
 def main():
     mods = {t: load(t) for t in ("sub", "qa", "task")}
+    for mod in mods.values():
+        COLORS.update({k: v["color"] for k, v in mod.METHOD_STYLES.items()})
+        COLORS.update({k: v["color"] for k, v in getattr(mod, "SCHEDULE_STYLES", {}).items()})
     paths = []
     for tag, mod in mods.items():
         paths += learning_curves(mod, tag)
