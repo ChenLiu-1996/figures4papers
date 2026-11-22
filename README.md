@@ -40,6 +40,9 @@ Please feel free to cite any of these papers if you find them relevant or helpfu
 
 </div>
 
+### Line plots (continued)
+<img src="figure_MACL/figures/exp_sub_learning_curves.png" width="800">
+
 ### Concept plots
 <img src="figure_VIGIL/figures/concept.png" width="800">
 
